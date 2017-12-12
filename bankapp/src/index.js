@@ -10,16 +10,18 @@ import store from './Store.js'
 //         {
 //             id: 0,
 //             date: '2017/12/10',
-//             type: 'deposit',
+//             kind: 'deposit',
 //             account: 'checking',
 //             amount: '$1.00'
+//             balance: '$101'
 //         },
 //         {
 //             id: 1,
 //             date: '2017/12/10',
-//             type: 'withdraw',
+//             kind: 'withdraw',
 //             account: 'savings',
 //             amount: '$1.00'
+//             balance: '$99'
 //         }
 //     ],
 //     filter: 'all'

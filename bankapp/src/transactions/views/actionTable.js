@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-const ActionTable = ({accounts, transactions}) => {
+const ActionTable = ({transactions}) => {
     return (
         <table>
             <thead>
@@ -19,10 +19,10 @@ const ActionTable = ({accounts, transactions}) => {
                 transactions.map((item) => (
                 <tr key={item.id}>
                     <td>{item.date}</td>
-                    <td>{item.type}</td>
+                    <td>{item.kind}</td>
                     <td>{item.account}</td>
                     <td>{item.amount}</td>
-                    <td>{accounts[item.account]}</td>
+                    <td>{item.balance}</td>
                 </tr>
                 ))
             }
@@ -32,22 +32,18 @@ const ActionTable = ({accounts, transactions}) => {
 }
 
 ActionTable.propTypes = {
-    accounts: PropTypes.shape({
-        checking: PropTypes.number.isRequired,
-        savings: PropTypes.number.isRequired
-    }).isRequired,
     transactions: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
-        date: PropTypes.object.isRequired,
-        type: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        kind: PropTypes.string.isRequired,
         account: PropTypes.string.isRequired,
-        amount: PropTypes.number.isRequired
+        amount: PropTypes.string.isRequired,
+        balance: PropTypes.number.isRequired
     }).isRequired).isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        accounts: state.accounts,
         transactions: state.transactions
     };
 };

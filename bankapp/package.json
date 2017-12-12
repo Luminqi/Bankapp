@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "^2.19.4",
+    "pouchdb": "^6.3.4",
     "prop-types": "^15.6.0",
+    "ramda": "^0.25.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
