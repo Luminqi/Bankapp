@@ -1,0 +1,25 @@
+.content {
+    position: relative;
+}
+
+.icon-dr {
+    font-size: 48px;
+    color: #e8e8e8;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transition: all 0.3s linear;
+}
+
+.icon-dl {
+    font-size: 48px;
+    color: #e8e8e8;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transition: all 0.3s linear;
+}
+.icon-dl:hover, .icon-dr:hover {
+    font-size: 64px;
+    color: #1890ff;
+}
