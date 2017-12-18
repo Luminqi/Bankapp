@@ -1,9 +1,9 @@
 import { CHANGETAB } from './actionTypes';
 
-export default (state = { tabKey: '1'}, action) => {
+export default (state = '1', action) => {
     switch(action.type) {
         case CHANGETAB: {
-            return {...state, tabKey: action.key};
+            return action.key;
         }
         default: {
             return state;
@@ -13,5 +13,10 @@ export default (state = { tabKey: '1'}, action) => {
 
 
 // initialState= {
-//     tabKey: '1'
+//     tabKey: '1',
+//     dialog: {
+//         visible: false||true,
+//         progress: 'loading'||'error'||'complete',
+//         content: ''
+//     }
 // }

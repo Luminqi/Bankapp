@@ -5,12 +5,13 @@ import { view as Tabs } from '../Tabs/';
 import Buttons from '../Buttons/Buttons.js'
 import './Layout.css'
 
-const { Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider, } = Layout;
 
 export default () => {
     return (
         <Layout>
             <Sider
+                className="sider"
                 breakpoint="xs"
                 collapsedWidth="0"
                 onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
@@ -23,7 +24,7 @@ export default () => {
             <Layout>
                 <Content className="content">
                     <Buttons />
-                    <div style={{ padding: 24, background: '#fff', minHeight: 560 }}>
+                    <div>
                     <Tabs />
                     </div>
                 </Content>
