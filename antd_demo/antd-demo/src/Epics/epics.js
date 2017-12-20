@@ -1,9 +1,10 @@
 import React from 'react';
-import { actions as dialogActions } from '../Dialog';
-import { actionTypes as dialogActionTypes } from '../Dialog';
+import { actions as dialogActions } from '../Dialog/';
+import { actionTypes as dialogActionTypes } from '../Dialog/';
 import { ofType } from 'redux-observable';
 import { ajax } from 'rxjs/observable/dom/ajax';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
 
 const handleResponse = (response) => {
     let repo = response.items[0];
@@ -21,7 +22,8 @@ const showContentEpic = action$ =>
         ofType(dialogActionTypes.SHOWMODAL),
         switchMap(action =>
             ajax.getJSON(`https://api.github.com/search/repositories?q=${action.title}`).pipe(
-                map(response => handleResponse(response))
+                map(response => handleResponse(response)),
+                catchError(err => of(dialogActions.updatecontent(<p>ERROR...</p>)))
             )
         )
     );

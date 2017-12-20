@@ -15,5 +15,12 @@ const updatecontent = (content) => ({
     type: UPDATECONTENT,
     content: content
 });
+// const updatecontent = (content) => {
+//     console.log(content);
+//     return {
+//         type: UPDATECONTENT,
+//         content: content
+//     };
+// };
 
 export { showmodal, hidemodal, updatecontent };

@@ -10,13 +10,3 @@ export default (state = '1', action) => {
         }
     }
 };
-
-
-// initialState= {
-//     tabKey: '1',
-//     dialog: {
-//         visible: false||true,
-//         progress: 'loading'||'error'||'complete',
-//         content: ''
-//     }
-// }
