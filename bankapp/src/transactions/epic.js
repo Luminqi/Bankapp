@@ -15,8 +15,9 @@ const transactionEpic = (action$, store) =>
         timestamp(),
         map(obj => ({...obj.value, date: obj.timestamp})),
         mergeMap(datedTx =>
-            Rx.Observable.fromPromise(txDb.post(datedTx))
-            .mapTo(transaction(datedTx))
+            Rx.Observable.fromPromise(txDb.post(datedTx)).pipe(
+                mapTo(transaction(datedTx))
+            )        
         )
     );
 
