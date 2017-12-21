@@ -6,7 +6,7 @@ import {transaction} from './actions.js'
 import PouchDB from 'pouchdb';
 
 
-const txDb = new PouchDB('transaction');
+const txDb = new PouchDB('http://192.168.1.4:5984/bankapp');
 const transactionEpic = (action$, store) =>
     action$.pipe(
         ofType(accountTypes.DEPOSIT, accountTypes.WITHDRAW),
@@ -17,7 +17,7 @@ const transactionEpic = (action$, store) =>
         mergeMap(datedTx =>
             Rx.Observable.fromPromise(txDb.post(datedTx)).pipe(
                 mapTo(transaction(datedTx))
-            )        
+            )
         )
     );
 
